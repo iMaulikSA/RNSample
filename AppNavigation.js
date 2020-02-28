@@ -6,12 +6,12 @@ import { createBottomTabNavigator } from 'react-navigation-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 //Screens 
-import SignIn from '../NavigationSample/Components/SignIn.js'
-import Home from '../NavigationSample/Components/Home.js'
-import Search from '../NavigationSample/Components/Search.js'
-import AddNew from '../NavigationSample/Components/AddNew.js'
-import Favorite from '../NavigationSample/Components/Favorite.js'
-import Profile from '../NavigationSample/Components/Profile.js'
+import SignIn from './Components/SignIn'
+import Home from './Components/Home.js'
+import Search from './Components/Search.js'
+import AddNew from './Components/AddNew.js'
+import Favorite from './Components/Favorite.js'
+import Profile from './Components/Profile.js'
 
 
 const commonNavigationOptions = { 

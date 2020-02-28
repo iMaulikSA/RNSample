@@ -54,6 +54,7 @@
 		<string>SimpleLineIcons.ttf</string>
 		<string>Octicons.ttf</string>
 		<string>Zocial.ttf</string>
+		<string>Fontisto.ttf</string>
 	</array>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string></string>
