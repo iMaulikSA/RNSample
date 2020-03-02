@@ -12,7 +12,7 @@ import Search from './Components/Search.js'
 import AddNew from './Components/AddNew.js'
 import Favorite from './Components/Favorite.js'
 import Profile from './Components/Profile.js'
-
+import MapScreen from './Components/MapScreen'
 
 const commonNavigationOptions = { 
   headerTintColor: '#fff',
@@ -49,6 +49,7 @@ const commonNavigationOptions = {
 const HomeStack = createStackNavigator(
   {
     Home: { screen: Home, navigationOptions: { headerTitle: 'Home' } },
+    MapScreen: { screen: MapScreen, navigationOptions: { headerTitle: 'Location' } },
   },
   {
     defaultNavigationOptions: commonNavigationOptions,

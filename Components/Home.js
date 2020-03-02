@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
-import { View, Text, SafeAreaView, FlatList, Image, Alert, ActivityIndicator, RefreshControl } from 'react-native'
+import { View, Text, SafeAreaView, FlatList, Image, Alert, ActivityIndicator, RefreshControl, TouchableOpacity } from 'react-native'
 import styles from './HomeStyle'
 import API from '../APIHelper'
-import { TouchableOpacity } from 'react-native-gesture-handler'
+import { connect } from "react-redux";
 
 const secure = API.createSecure()
-export default class Home extends Component {
+class Home extends Component {
 
     constructor() {
         super()
@@ -30,6 +30,8 @@ export default class Home extends Component {
 
     //#region Componenet LifeCycle
     componentDidMount() {
+        console.log('this.props.token', this.props.token);
+        console.log('this.props.user', this.props.user);
         this.doInitialSetUp()
     }
     //#endregion
@@ -67,9 +69,15 @@ export default class Home extends Component {
         )
     }
 
+    onPressFoodItem = () => {
+        this.props.navigation.navigate('MapScreen')
+    }
+
     renderFoodItems = ({ item, index }) => {
         return (
-            <View style={{ flex: 0, padding: 10 }}>
+            <TouchableOpacity 
+            activeOpacity={1}
+            style={{ flex: 0, padding: 10 }} onPress={() => this.onPressFoodItem()}>
                 <View style={styles.foodItemInsideView}>
                     <Image source={{ uri: item.photo ? item.photo : 'https://assets.materialup.com/uploads/b03b23aa-aa69-4657-aa5e-fa5fef2c76e8/preview.png' }} style={styles.foodItemImage}></Image>
                     {/* <View style={{ width: 70, height: 20, alignSelf: 'flex-end', justifyContent: 'center', alignItems: 'center', marginTop: 15, backgroundColor: '#F15555', position: 'absolute' }}>
@@ -90,7 +98,7 @@ export default class Home extends Component {
                         <Text style={styles.foodItemCategorty}>{item.serves} Person</Text>
                     </View>
                 </View>
-            </View>
+            </TouchableOpacity>
         )
     }
 
@@ -160,3 +168,10 @@ export default class Home extends Component {
     }
     //#endregion
 }
+
+const mapStateToProps = (state) => {
+    return { token: state.token,
+        user: state.user }
+}
+
+export default connect(mapStateToProps)(Home)

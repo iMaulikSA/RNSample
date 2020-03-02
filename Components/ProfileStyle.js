@@ -19,6 +19,7 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderColor: 'black',
         justifyContent: 'center',
+        alignItems: 'center'
     },
     profileImage: {
         width: 112,
@@ -33,8 +34,25 @@ const styles = StyleSheet.create({
     profileDetail: {
         marginTop: 24,
         marginHorizontal: 20,
-        backgroundColor: 'gray',
         flex: 1
+    },
+    name: {
+        fontSize: 30,
+        fontWeight: '500',
+        alignSelf: 'center'
+    },
+    profileOthDetails: {
+        flex: 0,
+        marginHorizontal: 10,
+        marginVertical: 6,
+        flexDirection: 'row',
+    },
+    profileOthContent: {
+        paddingLeft: 20,
+        justifyContent: 'center',
+        alignSelf: 'center',
+        fontSize: 15,
+        fontWeight: '500',
     }
 
 })
